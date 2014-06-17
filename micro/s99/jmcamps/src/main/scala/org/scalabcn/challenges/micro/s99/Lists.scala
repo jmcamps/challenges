@@ -182,4 +182,8 @@ object Lists {
      case (_, Nil) => throw new NoSuchElementException
      case (previous, element :: xs) => (previous ::: xs, element)      
    } 
+   
+   def insertAt[T](newElement: T, position: Int, list: List[T]): List[T] = list.splitAt(position) match {     
+     case (previous, xs) => previous ::: newElement :: xs  
+   }
 }

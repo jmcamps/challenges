@@ -599,5 +599,24 @@ class ListsSuite extends FunSuite {
     intercept[NoSuchElementException] {
     	val result = removeAt(1,List(1))
     }      
-  }      
+  }
+  
+  // ***************************************************
+  // P21 (*) Insert an element at a given position into a list.
+  // ***************************************************
+  test("Happy path: Insert an element at a given position into a list.") {
+    // act
+    val result = insertAt('new, 1, List('a, 'b, 'c, 'd))
+    
+    // assert
+    assert(result === (List('a, 'new, 'b, 'c, 'd)), "Insert an element at a given position into a list.")    
+  }
+  
+  test("Happy path: Insert in position 1 with a list with one element") {
+     // act
+    val result = insertAt('new, 1, List('a))
+    
+    // assert
+    assert(result === (List('a, 'new)), "Insert in position 1 with a list with one element")  
+  }
 }
